@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.1",
+    "name": "Hello World",
+    "description": "Extensão Hello World",
+    "author": "TTU",
+    "browser_action": {
+        "default_title": "Hello World",
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://stackoverflow.com/*",
+                "https://stackoverflow.com/*"
+            ],
+            "js": [
+                "src/trolls/stack-over-troll.js"
+            ]
+        },
+        {
+            "matches": [
+                "http://github.com/*",
+                "https://github.com/*"
+            ],
+            "js": [
+                "src/trolls/git-troll.js"
+            ]
+        }
+    ]
+}
